@@ -1,0 +1,12 @@
+{
+  "id": "aidd-sandbox",
+  "version": "1.0.0",
+  "name": "AI-Driven Development Sandbox",
+  "description": "A sandboxed environment for AI-driven development with Claude Code",
+  "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/aidd-sandbox",
+  "licenseURL": "https://github.com/devcontainers/template-starter/blob/main/LICENSE",
+  "options": {},
+  "platforms": [
+    "Any"
+  ]
+}
