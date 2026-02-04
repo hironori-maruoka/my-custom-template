@@ -2,8 +2,8 @@
   // コンテナの表示名
   "name": "AI-Driven sandbox",
 
-  // ベースイメージ（軽量なNode.js環境）
-  "image": "node:22-slim",
+  // ベースイメージ（開発ツール込みのNode.js環境）
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
 
   // 追加機能（GitHub CLI）
   "features": {
