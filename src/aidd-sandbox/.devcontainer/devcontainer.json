@@ -5,20 +5,26 @@
   // ベースイメージ（開発ツール込みのNode.js環境）
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
 
-  // 追加機能（GitHub CLI）
-  "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
+  // コンテナ作成後に実行
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y jq && curl -fsSL https://claude.ai/install.sh | bash && echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.bashrc && echo 'if ! pgrep -f cc-session-watcher.sh > /dev/null; then nohup bash /workspaces/ai-driven-development-tms2-src/cc-session-watcher/cc-session-watcher.sh > /tmp/claude-watcher.log 2>&1 & fi' >> ~/.bashrc",
 
-  // コンテナ作成後に実行：Claude CLIのインストールとPATH設定
-  "postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash && echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.bashrc",
-
-  // VS Code拡張機能の自動インストール
+  // VS Code拡張機能の自動インストール + 色設定追加
   "customizations": {
     "vscode": {
       "extensions": [
-        "anthropics.claude-code"
-      ]
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "workbench.colorCustomizations": {
+          "titleBar.activeBackground": "#1e3a8a",
+          "titleBar.activeForeground": "#ffffff",
+          "titleBar.inactiveBackground": "#1e3a8a99",
+          "titleBar.inactiveForeground": "#ffffffcc",
+          "activityBar.background": "#1e3a8a",
+          "statusBar.background": "#1e3a8a",
+          "statusBar.foreground": "#ffffff"
+        }
+      }
     }
   }
 }
